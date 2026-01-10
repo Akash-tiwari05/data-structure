@@ -1,0 +1,50 @@
+✅ Two Pointer Pattern — Before You Start Checklist
+Ask yourself these 5 questions in order:
+
+1️⃣ Is the data sorted (or can be sorted)?
+
+    ✔️ Sorted array / string
+    ✔️ Monotonic order (increasing / decreasing)
+
+    ✅ YES → Two pointers is possible
+    ❌ NO → Two pointers usually NOT valid
+
+    Example:
+        [1, 2, 4, 7, 11] ✅
+        [3, 2, 4] ❌
+
+2️⃣ Am I comparing two elements at a time?
+
+    Two pointers is for problems like:
+
+        -> pair
+        -> subarray window
+        -> palindrome check
+        -> left vs right comparison
+
+    Examples:
+
+        -> Two Sum (sorted)
+        -> Pair with target
+        -> Reverse array
+        -> Palindrome
+
+3️⃣ Does moving pointers shrink the search space?
+
+    You must be able to say:
+        -> “If condition is too big, move right”
+        -> “If condition is too small, move left”
+    If pointer movement is logical and predictable, two pointers works.
+
+4️⃣ Are indices or values allowed to be returned?
+
+    If original indices matter and array is unsorted → ❌ two pointers
+    If only values or sorted indices matter → ✅ two pointers
+
+5️⃣ Can I do better than O(n²)?
+    Two pointers is almost always:
+        O(n) time
+        O(1) space
+
+🧠 Golden Rule (MEMORIZE THIS)
+ -> ❝Sorted + pair-based + monotonic movement = Two Pointers❞
