@@ -139,8 +139,8 @@ are always welcome.
 
 ## 📌 Connect With Me
 
-- 💼 LinkedIn: *(Add your LinkedIn here)*
-- 💻 GitHub: *(This repository)*
+- 💼 LinkedIn: https://www.linkedin.com/in/akash-tiwari-0b5105253/
+- 💻 GitHub: https://github.com/Akash-tiwari05/data-structure
 
 ---
 
