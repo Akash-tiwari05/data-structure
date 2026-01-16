@@ -30,26 +30,41 @@ public class CountOccurenceOfAnagrams {
         }
         return count;
     }
-
+/// optimal solution using sliding window
     public static int search(String pat, String txt) {
         // code here
         int m = pat.length(), n = txt.length();
-        int[] arr = new int[26];
+        //step 1 - count the freq of pat string
+        int[] freq = new int[26];
         for(char ch : pat.toCharArray()){
-            arr[ch-'a']++;
+            freq[ch-'a']++;
         }
 
-        int i = 0 , j =0, count = 0;
-        int[] txtFrq = new int[26];
+        int i = 0 , j =0;
+        int count = freq.length;
+        int ans = 0;
         while(j < n){
             char ch = txt.charAt(j);
-            txtFrq[ch -'a']++;
+            //step 2 include the current character
+            freq[ch - 'a']--;
+            if(freq[ch -'a'] == 0){
+                count--;
+            }
+
             int sum = j-i +1;
             if(sum == m){
-                if(Arrays.equals(arr,txtFrq)){
+                //step 3 find the solution
+                if(count == 0){
+                    ans++;
+                }
+
+                //step 4 slide the window
+                char remChar = txt.charAt(i);
+
+                if(freq[remChar-'a'] == 0){
                     count++;
                 }
-                txtFrq[txt.charAt(i)-'a']--;
+                freq[remChar -'a']++;
                 i++;
             }
             j++;
