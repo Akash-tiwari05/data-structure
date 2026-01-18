@@ -1,0 +1,100 @@
+Sliding Window Approach (Theory)
+
+The Sliding Window technique is an algorithmic approach used to solve problems involving arrays or strings where we need to examine contiguous subarrays or substrings efficiently.
+Instead of recalculating results for every possible subarray (which is slow), the sliding window reuses previous computations by moving a window over the data.
+
+Why Sliding Window?
+
+A brute-force approach often takes O(n²) time.
+Sliding Window reduces this to O(n) by:
+
+Maintaining a window range
+Updating values when the window moves
+Avoiding repeated work
+
+Core Idea
+
+A window is defined by two pointers:
+Start (left)
+End (right)
+The window:
+
+Expands by moving end
+Shrinks by moving start
+Slides forward one step at a time
+
+Types of Sliding Window
+1️⃣ Fixed Size Sliding Window
+
+The window size remains constant.
+When to use:
+Maximum/minimum sum of subarray of size k
+Average of subarrays
+Fixed-length patterns
+
+Steps:
+
+Add the next element to the window
+When window size reaches k, process result
+Remove the element going out of the window
+
+Slide forward
+
+Example:
+
+Find the maximum sum of subarray of size k
+
+2️⃣ Variable Size Sliding Window
+
+The window size changes dynamically.
+
+When to use:
+
+Longest/shortest subarray problems
+
+Conditions like “at most k”, “at least k”
+
+Substring problems with constraints
+
+Steps:
+
+Expand window until condition is met
+
+Shrink window when condition is violated
+
+Track best answer during the process
+
+Example:
+
+Longest substring with at most k distinct characters
+
+General Pattern (Template)
+start = 0
+for end = 0 to n-1:
+    add arr[end] to window
+
+    while condition is violated:
+        remove arr[start] from window
+        start++
+
+    update answer
+
+Key Characteristics
+Feature	Description
+Time Complexity	O(n)
+Space Complexity	O(1) or O(k)
+Data Structures	Arrays, HashMap, HashSet
+Applicable On	Arrays, Strings
+Advantages
+
+✔ Faster than brute force
+✔ Clean and readable logic
+✔ Ideal for interviews
+✔ Scales well for large inputs
+
+Common Sliding Window Problems
+Maximum sum subarray of size k
+Longest substring without repeating characters
+Minimum window substring
+Count occurrences of anagrams
+Longest subarray with sum ≤ k
