@@ -1,0 +1,62 @@
+🔹 What is the Slow–Fast Pointer Approach?
+
+    The slow–fast approach uses two pointers that move at different speeds through a data structure.
+
+    Slow pointer → moves 1 step
+    Fast pointer → moves 2 steps
+    Used to detect patterns, cycles, or specific positions efficiently.
+
+🔹 Why use it?
+
+✅ Reduces time complexity
+✅ Avoids extra memory (O(1) space)
+✅ Elegant solution for linked lists & arrays
+
+🔹 Common Use Cases
+
+Detect cycle in Linked List
+Find middle of Linked List
+Find start of cycle
+Happy Number problem
+Remove nth node from end
+Check palindrome in linked list
+
+🔹 Core Idea (Intuition)
+
+If there is a cycle:
+Fast pointer will eventually catch up to slow pointer
+Like runners on a circular track 🏃‍♂️🏃‍♀️
+If no cycle:
+Fast pointer reaches null
+🔹 Example 1: Detect Cycle in Linked List
+Logic
+
+Initialize both pointers at head
+Move slow by 1, fast by 2
+If they meet → cycle exists
+
+
+✅ Slow–Fast Approach Checklist (Very Important)
+
+Before using this approach, ask:
+
+✔ Problem Understanding
+ Is there repeated traversal or cycle possibility?
+ Can data be traversed sequentially?
+✔ Pointer Setup
+
+ Both pointers start at correct position (usually head)
+ Slow → +1 step
+ Fast → +2 steps
+✔ Loop Safety
+ Check fast != null
+ Check fast.next != null
+✔ Termination
+ Cycle → slow == fast
+ No cycle → fast reaches null
+
+✔ Edge Cases
+ Empty list
+ Single node
+ Two nodes
+ Self-loop
