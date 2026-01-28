@@ -1,0 +1,53 @@
+What is a Dummy Node?
+
+A dummy node is an extra node created before the actual head of a linked list.
+
+It does not store real data
+It helps simplify edge cases
+Especially useful when head might change
+ListNode dummy = new ListNode(0);
+dummy.next = head;
+
+🔸 Why Use Dummy Node?
+
+Without dummy node, you must handle:
+Removing the head
+Inserting at the start
+Empty list checks
+
+With dummy node:
+✅ Same logic for all nodes
+✅ Cleaner code
+✅ Fewer bugs
+
+🔸 When Should You Use It?
+
+Use Dummy Node Technique when:
+
+Head may be deleted
+Head may be inserted before
+Multiple pointer updates are needed
+You want to avoid special if (head == ...) cases
+
+🔸 Core Idea
+dummy → head → node1 → node2 → ...
+
+You never lose the head, because:
+Return dummy.next
+Head can safely change
+
+Dummy Node Technique Checklist
+✔ Use Dummy Node When:
+
+ Head may change
+ Deletion is involved
+ Insertion before head is possible
+ You want uniform logic
+
+✔ Steps to Follow
+
+ Create dummy node
+ Point dummy.next → head
+ Use a pointer starting at dummy
+ Perform operations normally
+ Return dummy.next
