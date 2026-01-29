@@ -1,0 +1,65 @@
+Recursive Approach for Linked List Problems
+Overview
+
+The recursive approach for linked list problems is based on the idea that each node’s
+result depends on the result of the remaining list.
+Instead of iterating through nodes, recursion processes the list from end to start,
+rebuilding links during backtracking.
+
+Core Idea
+At every recursive call:
+Solve the problem for head.next
+Decide whether to keep or remove the current node
+Return the new head of the processed list
+
+General Recursive Pattern
+ListNode solve(ListNode head) {
+    if (head == null) return null;   // Base case
+    head.next = solve(head.next);    // Recursive call
+    // Decision on current node
+    if (condition) {
+        return head.next;            // Skip current node
+    }
+    return head;                     // Keep current node
+}
+
+Example: Remove Elements from Linked List
+public ListNode removeElements(ListNode head, int val) {
+    if (head == null) return null;
+    head.next = removeElements(head.next, val);
+    return head.val == val ? head.next : head;
+}
+
+Step-by-Step Explanation
+Recursion continues until the end of the list (head == null)
+During backtracking:
+Each node checks whether it should be removed
+Links are rebuilt automatically
+The final returned node becomes the new head of the list
+
+Time & Space Complexity
+Complexity Type	Value
+Time Complexity	O(n)
+Space Complexity	O(n) (recursive call stack)
+
+Note: This approach is not space-optimal due to recursion stack usage.
+
+When to Use Recursion
+
+✅ Clean and readable logic
+✅ Useful for conceptual clarity
+❌ Not suitable for very large lists (risk of stack overflow)
+❌ Avoid when strict O(1) space is required
+
+Recursive Linked List Checklist
+
+ Base case handled (head == null)
+ Recursive call made on head.next
+ head.next properly reconnected
+ Correct return (head vs head.next)
+ Aware of extra stack space usage
+
+Key Takeaway
+
+The recursive linked list approach trades space efficiency for code clarity,
+making it ideal for learning, interviews, and problems where readability is prioritized.
