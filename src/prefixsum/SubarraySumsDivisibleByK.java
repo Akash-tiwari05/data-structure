@@ -13,25 +13,31 @@ public class SubarraySumsDivisibleByK {
 
     public static int subarraysDivByK(int[] nums, int k) {
 
+        /*                                    mp = 0,1
+        i = 0, n = 4, ps = 4, rem = 4, c = 0  mp = 4,1
+        i = 1, n = 5, ps = 9, rem = 4, c = 1, mp = 4,2
+        i = 3, n = 0, ps = 9, rem = 4, c = 3, mp = 4,3
+        i = 4, n =-2, ps = 7, rem = 2, c = 3, mp = 2,1
+        i = 5, n =-3, ps = 4, rem = 4, c = 6, mp = 4,4
+        i = 6, n = 1, ps = 5, rem = 0, c = 7, mp = 0,1
+         */
         int n = nums.length;
-        int totalSum = 0;
-        int count = 0;
-        for(int num : nums){
-            totalSum += num;
-        }
-
         HashMap<Integer,Integer> map = new HashMap<>();
         map.put(0,1);
+        int count = 0;
+        int prefixSum = 0;
         for (int i = 0; i < n; i++) {
-            int rem= totalSum - nums[i];
-            int ans = rem%k;
-            if(ans == 0){
-                map.get(ans);
+            prefixSum += nums[i];
+            int rem = prefixSum%k;
+            if(rem < 0 ){
+                rem += k;
             }
-            if(map.containsKey(k - nums[i])){
-                count += map.get(nums[i]);
+
+            if(map.containsKey(rem)){
+                count += map.get(rem);
             }
-            map.put(nums[i], map.getOrDefault(nums[i] , 0)+1);
+
+            map.put(rem, map.getOrDefault(rem,0)+1);
         }
 
         return count;
