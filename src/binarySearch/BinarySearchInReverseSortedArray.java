@@ -1,0 +1,28 @@
+package binarySearch;
+
+public class BinarySearchInReverseSortedArray {
+
+    public static void main(String[] args) {
+        int[] nums = {9,8,7,6,5,4,3,2,1};
+        int target = 3;
+        System.out.println(search(nums,target));
+    }
+
+    public static int search(int[] nums, int target) {
+        int start = 0;
+        int end = nums.length -1;
+        while(start <= end){
+            int mid = start + (end - start)/2;
+            if(target == nums[mid]){
+                return mid;
+            }
+            else if(target < nums[mid]){
+                start = mid+1;
+            }
+            else{
+                end = mid -1;
+            }
+        }
+        return -1;
+    }
+}
