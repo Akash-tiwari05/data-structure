@@ -2,23 +2,23 @@ package binarySearch.countingOccurences;
 
 import java.util.Arrays;
 
-public class FindFirstAndLastPositionOfElementInSortedArray {
+public class NumberOfOccurrence {
 
     public static void main(String[] args) {
 
         int[] nums = {2,4,10,10,10,18,20};
         int target = 10;
-        System.out.println(Arrays.toString(searchRange(nums,target)));
+        System.out.println(countFreq(nums,target));
     }
 
-    public static int[] searchRange(int[] nums, int target) {
+    public static int countFreq(int[] nums, int target) {
 
 
         int first = foundOccur(nums,target,true);
         int last = foundOccur(nums,target,false);
-        int[] ans = {first,last};
 
-        return ans;
+
+        return last - first +1;
     }
 
     public static int foundOccur(int[] nums, int target, boolean isFirst){
@@ -48,4 +48,3 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         return found;
     }
 }
-
