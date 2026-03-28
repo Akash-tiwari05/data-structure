@@ -1,4 +1,4 @@
-package sorting;
+package sorting.introduction;
 
 public class FindClosestNumberToZero {
 
