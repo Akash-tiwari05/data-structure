@@ -6,7 +6,7 @@ import java.util.HashSet;
 public class CheckArithmeticProgression {
 
     public static void main(String[] args) {
-        int[] arr = {0, 12, 4, 8};
+        int[] arr = {1, 3, 4, 8};
         System.out.println(checkIsAP(arr));
         System.out.println(checkIsAP2(arr));
     }
@@ -33,22 +33,20 @@ public class CheckArithmeticProgression {
 
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
-
-        for (int num : arr) {
-            min = Math.min(min, num);
-            max = Math.max(max, num);
+        for (int ele : arr) {
+            min = Math.min(min,ele);
+            max = Math.max(max,ele);
         }
+        /*System.out.println(min);
+        System.out.println(secMin);*/
 
-        if ((max - min) % (n - 1) != 0) return false;
+        int sumOfAp = n*(min + max);
+        System.out.println(sumOfAp);
 
-        int d = (max - min) / (n - 1);
-
-        HashSet<Integer> set = new HashSet<>();
-        for (int num : arr) {
-            if ((num - min) % d != 0) return false;
-            set.add(num);
+        int sum = 0;
+        for (int ele: arr){
+            sum += ele;
         }
-
-        return set.size() == n;
+        return sumOfAp == 2*sum;
     }
 }
