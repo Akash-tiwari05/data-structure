@@ -1,7 +1,5 @@
-package dynamicPrograming;
+package dynamicPrograming.oneD_dp;
 
-
-import java.util.Arrays;
 
 //Use tabulation method
 public class FibonacciNumber2 {
