@@ -1,4 +1,4 @@
-package dynamicPrograming;
+package dynamicPrograming.twoD;
 
 import java.util.Arrays;
 
