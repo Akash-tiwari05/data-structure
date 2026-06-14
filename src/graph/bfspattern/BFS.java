@@ -1,4 +1,4 @@
-package graph;
+package graph.bfspattern;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
