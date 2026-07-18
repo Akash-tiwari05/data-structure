@@ -18,10 +18,11 @@ public class BellmanFord {
         int INF = (int) 1e8;
         int[] dist = new int[V];
 
+        // Initialize distances
         Arrays.fill(dist,INF);
         dist[src] = 0;
 
-        //Relaxation edge
+        // Relax all edges V-1 times
         for (int i = 1; i < V; i++) {
 
             for(int[] edge : edges){
@@ -35,7 +36,7 @@ public class BellmanFord {
             }
         }
 
-        //check negative wt graph
+        // Check for negative weight cycle
         for(int[] edge : edges){
             int u = edge[0];
             int v = edge[1];
