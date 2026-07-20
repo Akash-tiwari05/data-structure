@@ -4,30 +4,28 @@ import java.util.Arrays;
 
 public class DSU {
 
-    static int[] parent;
-    static int[] rank;
+    private static int[] parent;
+    private static int[] rank;
 
-
-    public static int find(int x){
-
-        if(parent[x] == x)
-            return x;
-        return parent[x] = find(parent[x]);
+    public static int find(int node) {
+        if (parent[node] == node) {
+            return node;
+        }
+        return parent[node] = find(parent[node]);
     }
 
-    public static void union(int a, int b){
-        int lead_a = find(a);
-        int lead_b = find(b);
+    public static void union(int nodeA, int nodeB) {
+        int rootA = find(nodeA);
+        int rootB = find(nodeB);
 
-        if (lead_a != lead_b) {
-            // Union by Rank optimization
-            if (rank[lead_a] < rank[lead_b]) {
-                parent[lead_a] = lead_b;
-            } else if (rank[lead_a] > rank[lead_b]) {
-                parent[lead_b] = lead_a;
+        if (rootA != rootB) {
+            if (rank[rootA] < rank[rootB]) {
+                parent[rootA] = rootB;
+            } else if (rank[rootA] > rank[rootB]) {
+                parent[rootB] = rootA;
             } else {
-                parent[lead_b] = lead_a;
-                rank[lead_a]++;
+                parent[rootB] = rootA;
+                rank[rootA]++;
             }
         }
     }
