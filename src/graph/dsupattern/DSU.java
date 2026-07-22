@@ -28,7 +28,7 @@ public class DSU {
                 rank[rootA]++;
             }
         }
-    }
+    } 
 
 
     public static void main(String[] args) {
