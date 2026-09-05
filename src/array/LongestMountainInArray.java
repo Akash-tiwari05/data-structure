@@ -4,10 +4,12 @@ public class LongestMountainInArray {
 
     public static void main(String[] args) {
 
-        int[] arr = {2,1,4,7,3,2,5};
+        int[] arr = {2,2,2};
         System.out.println(longestMountain(arr));
+        System.out.println(longestMountain2(arr));
     }
 
+    // Optimal solution
     public static int longestMountain(int[] arr) {
 
         int i = 1;
@@ -45,5 +47,43 @@ public class LongestMountainInArray {
         }
 
         return maxi;
+    }
+
+    //better solution
+    public static int longestMountain2(int[] arr) {
+
+        int n = arr.length;
+        int[] peek = new int[n];
+        int[] down = new int[n];
+
+
+        for (int i = 0; i < n; i++) {
+            peek[i] =1;
+            down[i] = 1;
+        }
+
+
+        //peek
+        for (int i = 1; i < n; i++) {
+            if(arr[i] > arr[i-1]){
+                peek[i] = 1 + peek[i -1];
+            }
+        }
+
+        //down
+        for (int i = n -2; i >= 0; i--) {
+            if(arr[i] > arr[i+1]){
+                down[i] = 1 + down[i +1];
+            }
+        }
+
+        int maxi = 0;
+        for (int i = 0; i < n; i++) {
+            if (peek[i] > 1 && down[i] > 1) {
+                maxi = Math.max(maxi, peek[i] + down[i] - 1);
+            }
+        }
+
+        return  maxi;
     }
 }
